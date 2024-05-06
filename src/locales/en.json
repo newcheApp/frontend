@@ -1,0 +1,17 @@
+{
+    "menu": {
+      "home": "Home",
+      "back": "Back",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "messages": {
+      "welcome": "Welcome to our website!",
+      "goodbye": "Thank you for visiting!"
+    },
+    "errors": {
+      "notFound": "Page not found",
+      "unauthorized": "Unauthorized access"
+    }
+  }
+  

@@ -1,10 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Banner from './components/banner';
 
 function App() {
   return (
     <div className="App">
+      <Banner
+        message="Newche App - banner!"
+        backgroundColor="#4CAF50"
+        color="#ffffff"
+        onClick={() => alert("Banner Clicked!")}
+      />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
