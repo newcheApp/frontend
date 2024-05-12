@@ -5,27 +5,19 @@
 }
 
 .side-banner {
-  position: absolute; /* Changed from fixed to absolute */
-  top: 56px; /* Adjust this if your AppHeader is taller */
-  left: 0;
-  width: 250px; /* Static width */
-  bottom: 0;
-  overflow-y: auto; /* Change this to 'visible' if you don't want any scrolling */
-}
-
-.side-banner {
-  position: absolute;
   width: 250px; /* Adjust width as needed */
   background-color: #004d40; /* Consistent with AppHeader for a cohesive look */
   color: #ffffff; /* Ensures text is white for readability */
   padding: 20px; /* Provides internal spacing */
 
+  position: relative; /* Change from absolute to fixed */
   top: 56px; /* Position below the AppHeader */
   left: 0;
   bottom: 0;
   overflow-y: auto; /* Allows scrolling within the sidebar */
   z-index: 1000; /* Ensures it appears above the page content but below the header */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 /* Styling for the "My Feed" button */

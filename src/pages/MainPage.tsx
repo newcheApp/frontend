@@ -3,7 +3,7 @@ import React from "react";
 import NewsList from "../components/NewsList";
 
 function MainPage() {
-  const mainPageUrl = "http://localhost:4242/api/news/by-date?date=2024-04-23";
+  const mainPageUrl = "http://localhost:4242/api/news/reverse";
 
   return (
     <div>

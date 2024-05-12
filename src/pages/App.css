@@ -1,27 +1,27 @@
-/* Assuming .app-container wraps everything and has a relative position */
+/* App.css */
+
 .content-container {
   display: flex;
-  flex-direction: row;
-  width: 100%; /* Ensure it spans the full width */
-  margin-top: 56px; /* Adjust this value to match the height of your AppHeader */
+  position: relative; /* Ensure the content container is positioned relative */
 }
 
-/* SideBanner stays as previously defined */
 .side-banner {
-  width: 250px; /* Adjust if different */
-  position: fixed;
-  top: 56px; /* Align with the bottom of the AppHeader */
-  left: 0;
-  height: calc(
-    100vh - 56px
-  ); /* Adjust height to fill the screen minus header */
-  overflow-y: auto; /* Allows scrolling within the sidebar */
+  width: 200px !important; /* Add !important to ensure this width is applied */
+  background-color: #004d40; /* Consistent with AppHeader for a cohesive look */
+  color: #ffffff; /* Ensures text is white for readability */
+  padding: 20px; /* Provides internal spacing */
+  position: absolute; /* Position the side-banner absolutely within the content container */
+  top: 0px; /* Position below the AppHeader */
+  bottom: 0; /* Fill the remaining height of the content container */
+  overflow-y: auto; /* Allow scrolling within the sidebar */
+  z-index: 1; /* Ensure the side-banner appears below the news-container */
 }
 
-/* Adjustments specifically for NewsList */
 .news-container {
-  flex-grow: 1; /* Takes remaining space */
-  margin-left: 270px; /* Equal to the width of the SideBanner plus any desired padding */
+  margin-left: 200px;
+  flex-grow: 1; /* Take remaining space */
   padding: 20px; /* Internal spacing */
-  overflow-y: auto; /* Allows internal scrolling if needed */
+  overflow-y: auto; /* Allow main content area to scroll if content exceeds height */
+  position: relative; /* Ensure the news container is positioned relative */
+  z-index: 2; /* Ensure the news-container appears above the side-banner */
 }
