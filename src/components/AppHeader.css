@@ -1,0 +1,49 @@
+/* AppHeader.css */
+.navbar {
+  position: fixed;
+  width: 100%; /* Ensures it spans the full width of the viewport */
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004d40; /* Adjust the background color as needed */
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 17mm; /* Adjust margin to position the text slightly to the right */
+  text-decoration: none; /* Ensure there is no underline */
+}
+
+.navbar-brand:hover {
+  color: #ffffff; /* Keeps the color white even on hover */
+  text-decoration: none; /* No underline or any decoration on hover */
+}
+
+/* Assuming you're using a generic class for your auth link, adjust accordingly */
+.auth-link,
+.btn-outline-primary {
+  color: #ffffff; /* Sets text color to white */
+  background-color: transparent; /* Ensures no background color */
+  border: none; /* Removes border */
+  padding: 0; /* Removes padding */
+  text-decoration: none; /* No underline by default */
+}
+
+.auth-link:hover,
+.btn-outline-primary:hover {
+  text-decoration: underline; /* Adds underline on hover */
+  color: #ffffff; /* Keeps the color white even on hover */
+}
+
+.nav-link {
+  color: #f5f5f5;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffffff; /* Ensures hover color is white */
+}

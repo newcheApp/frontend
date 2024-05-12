@@ -1,0 +1,50 @@
+/* SignInForm.css */
+.form-container {
+  max-width: 360px; /* Limits the width of the form */
+  margin: 50px auto; /* Centers the form on the page vertically and horizontally */
+  padding: 30px; /* Padding inside the form container */
+  background-color: #004d40; /* Matches the color scheme of AppHeader */
+  border-radius: 8px; /* Rounded corners for modern appearance */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  color: #ffffff; /* White text color for contrast */
+}
+
+.form-container h2 {
+  text-align: center; /* Centers the header text */
+  margin-bottom: 20px; /* Space below the header */
+}
+
+.form-container label {
+  display: block; /* Makes the label take the full width */
+  margin-bottom: 5px; /* Space below each label */
+}
+
+.form-container input {
+  width: 100%; /* Full width to fill the container */
+  padding: 10px; /* Padding inside the input fields */
+  margin-bottom: 20px; /* Space below each input field */
+  border-radius: 5px; /* Rounded corners for the inputs */
+  border: none; /* No border for a cleaner look */
+  background-color: #f8f9fa; /* Light background for the input */
+  color: #333; /* Dark text for contrast */
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"] {
+  display: block; /* Ensures inputs are block level to take full width */
+}
+
+.form-container button {
+  width: 100%; /* Button takes full width of the form */
+  padding: 10px; /* Padding inside the button */
+  border-radius: 5px; /* Rounded corners for the button */
+  background-color: #004d40; /* Bootstrap primary button color for consistency */
+  color: white; /* Text color */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.form-container button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

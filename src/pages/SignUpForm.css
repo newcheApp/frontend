@@ -1,0 +1,63 @@
+/* SignUpForm.css */
+.sign-up-form {
+  max-width: 400px; /* Limits the width of the form */
+  margin: 2rem auto; /* Centers the form on the page vertically and horizontally */
+  padding: 20px; /* Padding inside the form container */
+  background-color: #f5f5f5; /* Light background for the form area */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.sign-up-form input,
+.sign-up-form button {
+  width: 100%; /* Full width for inputs and buttons */
+  padding: 10px; /* Padding for better touch interaction */
+  margin-bottom: 10px; /* Space between form elements */
+  border-radius: 5px; /* Rounded corners for inputs and buttons */
+}
+
+.sign-up-form input {
+  border: 2px solid #ccc; /* Subtle border for inputs */
+  font-size: 1rem; /* Adequate font size for readability */
+}
+
+.sign-up-form button {
+  background-color: #004d40; /* Consistent with other button styles */
+  color: white; /* Text color for buttons */
+  border: none; /* No borders to keep the buttons clean */
+  cursor: pointer; /* Cursor pointer to indicate clickable */
+}
+
+.sign-up-form button:hover {
+  background-color: #003429; /* Slightly darker on hover */
+}
+
+.tag-selection {
+  margin-bottom: 20px; /* Spacing below the tag selection area */
+}
+
+.tag-selection h4 {
+  margin-bottom: 10px; /* Space below the heading */
+}
+
+.btn {
+  margin-right: 5px; /* Spacing between buttons */
+  margin-top: 5px; /* Space above buttons for wrap */
+}
+
+.btn-success,
+.btn-outline-success {
+  background-color: transparent;
+  color: #004d40; /* Theme color for the text */
+  border: 2px solid #004d40; /* Border to match the text color */
+}
+
+.btn-success {
+  background-color: #004d40; /* Background color for selected tags */
+  color: white;
+}
+
+.btn-outline-success:hover {
+  background-color: #003429;
+  color: white;
+}
