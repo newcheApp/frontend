@@ -7,6 +7,7 @@ interface NewsItem {
   url: string;
   image_url: string;
   summary: string;
+  date: string; // Keep this line
 }
 
 interface NewsCardProps {
@@ -18,6 +19,15 @@ const NewsCard: React.FC<NewsCardProps> = ({ news }) => {
     window.location.href = news.url;
   };
 
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat("en-GB", {
+      day: "2-digit",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+  };
+
   return (
     <div className="card" onClick={handleClick}>
       <img
@@ -27,6 +37,8 @@ const NewsCard: React.FC<NewsCardProps> = ({ news }) => {
       />
       <div className="card-body">
         <h5 className="card-title">{news.title}</h5>
+        <p className="card-date">{formatDate(news.date)}</p>{" "}
+        {/* Use formatDate */}
         <p className="card-text">{news.summary}</p>
       </div>
     </div>

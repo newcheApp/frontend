@@ -1,63 +1,38 @@
-import React, { useState } from "react";
-import { useAuth } from "./AuthContext";
-import "./SignInForm.css";
+// SignInForm.tsx
 
-const SignInForm = () => {
-  const [credentials, setCredentials] = useState({
+import React, { useState } from "react";
+import { useAuth, User } from "./AuthContext"; // Ensure User is imported here
+import "./AuthPage.css"; // Using the shared CSS file
+
+interface SignInCredentials {
+  identifier: string;
+  password: string;
+}
+
+const SignInForm: React.FC = () => {
+  const [credentials, setCredentials] = useState<SignInCredentials>({
     identifier: "",
     password: "",
   });
   const { signIn } = useAuth();
 
-  const handleInputChange = (event: { target: { name: any; value: any } }) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setCredentials((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (event: { preventDefault: () => void }) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Attempting to sign in with:", credentials);
-
-    // Validate credentials and possibly retrieve user data
-    fetch("http://localhost:4242/auth/validate-credentials", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credentials),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Sign in response:", data);
-        if (data === true) {
-          // Fetch user data from another endpoint if necessary
-          fetch(
-            `http://localhost:4242/api/users/getByEmail/${credentials.identifier}`
-          )
-            .then((response) => response.json())
-            .then((userData) => {
-              console.log("Retrieved user data:", userData); // Log user data
-              signIn(userData); // Store user data in context
-              alert("Sign in successful!");
-            })
-            .catch((error) => {
-              console.error("Failed to retrieve user data:", error);
-              alert("Failed to retrieve user data.");
-            });
-        } else {
-          alert("Sign in failed! Incorrect username or password.");
-        }
-      })
-      .catch((error) => {
-        console.error("Sign in failed:", error);
-        alert("Sign in failed!");
-      });
+    // Implement API call to validate credentials and then fetch user details if valid
+    // Use signIn with fetched User data
   };
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
         <h2>Sign In</h2>
         <div>
-          <label htmlFor="identifier">Email:</label>
+          <label htmlFor="identifier">Email or Username:</label>
           <input
             type="text"
             id="identifier"

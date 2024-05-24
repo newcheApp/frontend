@@ -1,23 +1,58 @@
-/* AuthPage.css */
-.auth-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh; /* Full height of the viewport */
-  background-color: #f8f9fa; /* Light background for a clean look */
+/* AuthForms.css */
+.form-container {
+  max-width: 360px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #004d40; /* Deep green background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #ffffff; /* White text for high contrast */
 }
 
-.auth-toggle-button {
-  background: none;
-  border: none;
-  color: #004d40; /* Bootstrap primary blue for visibility */
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-container input {
+  width: 100%;
   padding: 10px;
-  margin-top: 20px; /* Space above the toggle button */
-  cursor: pointer; /* Indicates the element is clickable */
-  font-size: 1rem; /* Adequate font size for readability */
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Subtle border matching light backgrounds */
+  background-color: #f8f9fa; /* Light gray for input fields */
+  color: #333; /* Dark gray text color for visibility */
 }
 
-.auth-toggle-button:hover {
-  text-decoration: underline; /* Underline on hover for better interaction feedback */
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #004d40; /* Dark green background for buttons */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #003429; /* Darker shade of green for hover effect */
+}
+
+.btn-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  color: #ffffff; /* White text color for the link */
+  text-decoration: none; /* No underline by default */
+}
+
+.btn-link:hover {
+  color: #ccc; /* Lighter color on hover */
 }

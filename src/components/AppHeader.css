@@ -1,49 +1,56 @@
 /* AppHeader.css */
 .navbar {
   position: fixed;
-  width: 100%; /* Ensures it spans the full width of the viewport */
+  width: 100%;
   top: 0;
   left: 0;
   z-index: 1050;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #004d40; /* Adjust the background color as needed */
+  background-color: #004d40; /* Dark green background */
+  padding: 0.5rem 1rem; /* Added padding for better alignment */
 }
 
 .navbar-brand {
   font-weight: bold;
   color: #ffffff;
-  margin-left: 47px; /* Adjust margin to position the text slightly to the right */
-  text-decoration: none; /* Ensure there is no underline */
+  text-decoration: none;
 }
 
 .navbar-brand:hover {
-  color: #ffffff; /* Keeps the color white even on hover */
-  text-decoration: none; /* No underline or any decoration on hover */
+  color: #ffffff; /* Keeps text color white on hover */
+  text-decoration: none; /* No underline */
 }
 
-/* Assuming you're using a generic class for your auth link, adjust accordingly */
-.auth-link,
-.btn-outline-primary {
-  color: #ffffff; /* Sets text color to white */
-  background-color: transparent; /* Ensures no background color */
-  border: none; /* Removes border */
-  padding: 0; /* Removes padding */
-  text-decoration: none; /* No underline by default */
+.navbar-right {
+  display: flex;
+  align-items: center;
 }
 
-.auth-link:hover,
-.btn-outline-primary:hover {
-  text-decoration: underline; /* Adds underline on hover */
-  color: #ffffff; /* Keeps the color white even on hover */
+.welcome-message {
+  color: #ffffff; /* White text for visibility */
+  margin-right: 10px; /* Space between the message and the button */
 }
 
-.nav-link {
-  color: #f5f5f5;
-  transition: color 0.3s;
+.btn.sign-out-btn {
+  color: #004d40; /* Text color matching the navbar */
+  background-color: #ffffff; /* White background */
+  border: none; /* No border */
+  padding: 0.375rem 0.75rem; /* Padding to match typical Bootstrap button */
 }
 
-.nav-link:hover {
-  color: #ffffff; /* Ensures hover color is white */
+.btn.sign-out-btn:hover {
+  background-color: #eeeeee; /* Slightly gray on hover for visual feedback */
+}
+
+.auth-link {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
 }

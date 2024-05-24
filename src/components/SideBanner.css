@@ -2,6 +2,7 @@
 
 .app-container {
   position: relative; /* Ensures the relative positioning context */
+  min-height: 100vh; /* Ensures the container stretches to at least the viewport height */
 }
 
 .side-banner {
@@ -9,18 +10,16 @@
   background-color: #004d40; /* Consistent with AppHeader for a cohesive look */
   color: #ffffff; /* Ensures text is white for readability */
   padding: 20px; /* Provides internal spacing */
-
-  position: relative; /* Change from absolute to fixed */
+  position: fixed; /* Fixed positioning to stay visible while scrolling */
   top: 56px; /* Position below the AppHeader */
   left: 0;
-  bottom: 0;
-  overflow-y: auto; /* Allows scrolling within the sidebar */
+  bottom: 0; /* Extends to the bottom of the viewport */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: auto; /* Allows scrolling within the sidebar if content overflows */
   z-index: 1000; /* Ensures it appears above the page content but below the header */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
-/* Styling for the "My Feed" button */
 .side-banner .btn-primary {
   background-color: #004d40; /* Match the sidebar background for a cleaner look */
   border: none; /* No border for a cleaner look */
@@ -32,33 +31,33 @@
   margin-bottom: 10px; /* Reduced space below the button */
   border-radius: 5px; /* Rounded corners for modern appearance */
   transition: background-color 0.3s ease-in-out; /* Smooth transition for interactive effect */
+  outline: none; /* Removes the outline on focus */
 }
 
-.side-banner .btn-primary:hover {
-  background-color: #004d40; /* Darker blue on hover */
+.side-banner .btn-primary:hover,
+.side-banner .btn-primary:focus {
+  /* Combines hover and focus for consistent styling */
+  background-color: #003d33; /* Darker green on hover */
   text-decoration: underline; /* Adds underline on hover */
+  outline: none; /* Ensure no outline appears on focus */
 }
 
-/* Separator style */
 .side-banner hr {
   border-top: 1px solid #ffffff; /* White line for a clear division */
   margin-top: 10px; /* Reduced margin-top */
   margin-bottom: 10px; /* Reduced margin-bottom */
 }
 
-/* Heading style within the sidebar */
 .side-banner h4 {
   font-size: 1.2em; /* Slightly larger for emphasis */
   margin-bottom: 10px; /* Reduced spacing below the header */
 }
 
-/* List style for categories */
 .side-banner .list-group {
   list-style-type: none; /* No bullets */
   padding: 0; /* No padding to align with sidebar edges */
 }
 
-/* Individual list items */
 .side-banner .list-group-item {
   background-color: transparent; /* No background to keep it clean */
   color: white;

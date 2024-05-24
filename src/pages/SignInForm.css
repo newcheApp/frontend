@@ -1,50 +1,58 @@
-/* SignInForm.css */
+/* SignInForm.css and SignUpForm.css */
 .form-container {
-  max-width: 360px; /* Limits the width of the form */
-  margin: 50px auto; /* Centers the form on the page vertically and horizontally */
-  padding: 30px; /* Padding inside the form container */
-  background-color: #004d40; /* Matches the color scheme of AppHeader */
-  border-radius: 8px; /* Rounded corners for modern appearance */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-  color: #ffffff; /* White text color for contrast */
+  max-width: 360px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #004d40; /* Deep green background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #ffffff; /* White text for high contrast */
 }
 
 .form-container h2 {
-  text-align: center; /* Centers the header text */
-  margin-bottom: 20px; /* Space below the header */
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .form-container label {
-  display: block; /* Makes the label take the full width */
-  margin-bottom: 5px; /* Space below each label */
+  display: block;
+  margin-bottom: 5px;
 }
 
 .form-container input {
-  width: 100%; /* Full width to fill the container */
-  padding: 10px; /* Padding inside the input fields */
-  margin-bottom: 20px; /* Space below each input field */
-  border-radius: 5px; /* Rounded corners for the inputs */
-  border: none; /* No border for a cleaner look */
-  background-color: #f8f9fa; /* Light background for the input */
-  color: #333; /* Dark text for contrast */
-}
-
-.form-container input[type="text"],
-.form-container input[type="password"] {
-  display: block; /* Ensures inputs are block level to take full width */
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Subtle border matching light backgrounds */
+  background-color: #f8f9fa; /* Light gray for input fields */
+  color: #333; /* Dark gray text color for visibility */
 }
 
 .form-container button {
-  width: 100%; /* Button takes full width of the form */
-  padding: 10px; /* Padding inside the button */
-  border-radius: 5px; /* Rounded corners for the button */
-  background-color: #004d40; /* Bootstrap primary button color for consistency */
-  color: white; /* Text color */
-  border: none; /* No border */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #004d40; /* Dark green background for buttons */
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .form-container button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #003429; /* Darker shade of green for hover effect */
+}
+
+.btn-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  color: #ffffff; /* White text color for the link */
+  text-decoration: none; /* No underline by default */
+}
+
+.btn-link:hover {
+  color: #ccc; /* Lighter color on hover */
 }

@@ -43,6 +43,12 @@
   margin-bottom: 0.5rem;
 }
 
+.card-date {
+  font-size: 1rem;
+  color: #999;
+  margin-bottom: 0.5rem; /* Add this block for the date styling */
+}
+
 .card-text {
   font-size: 1rem;
   color: #666;

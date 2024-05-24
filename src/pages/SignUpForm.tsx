@@ -1,5 +1,6 @@
+// SignUpForm.jsx
 import React, { useState, useEffect } from "react";
-import "./SignUpForm.css";
+import "./AuthPage.css"; // Using the shared CSS file
 
 interface Tag {
   id: string;
@@ -71,7 +72,7 @@ const SignUpForm = () => {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
