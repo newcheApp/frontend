@@ -1,5 +1,3 @@
-// SignInForm.tsx
-
 import React, { useState } from "react";
 import { useAuth, User } from "./AuthContext"; // Ensure User is imported here
 import "./AuthPage.css"; // Using the shared CSS file
@@ -15,6 +13,7 @@ const SignInForm: React.FC = () => {
     password: "",
   });
   const { signIn } = useAuth();
+  const [error, setError] = useState<string | null>(null);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -23,14 +22,35 @@ const SignInForm: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Implement API call to validate credentials and then fetch user details if valid
-    // Use signIn with fetched User data
+    try {
+      const response = await fetch(
+        "http://localhost:4242/api/auth/validate-credentials",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(credentials),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Invalid credentials");
+      }
+
+      const user: User = await response.json();
+      signIn(user); // Update the auth context with the user details
+    } catch (error) {
+      console.error("Failed to sign in:", error);
+      setError("Failed to sign in: Invalid credentials");
+    }
   };
 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
         <h2>Sign In</h2>
+        {error && <div className="error">{error}</div>}
         <div>
           <label htmlFor="identifier">Email or Username:</label>
           <input
