@@ -8,6 +8,7 @@ import MainPage from "./MainPage";
 import CategoryNews from "./CatagoryNews";
 import { AuthProvider } from "../pages/AuthContext";
 import "./App.css";
+import UpdateUserInfo from "./UpdateUserInfo";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
                   path="/category/:categoryId"
                   element={<CategoryNews />}
                 />
+                <Route path="/update-user-info" element={<UpdateUserInfo />} />
               </Routes>
             </div>
           </div>

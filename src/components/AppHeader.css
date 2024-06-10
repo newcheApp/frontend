@@ -54,3 +54,15 @@
 .auth-link:hover {
   text-decoration: underline;
 }
+
+.welcome-message {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+}
+
+.welcome-message:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}

@@ -20,7 +20,9 @@ function AppHeader() {
         <div className="navbar-right">
           {user ? (
             <>
-              <span className="welcome-message">Welcome {user.userName}</span>
+              <Link className="welcome-message" to="/update-user-info">
+                Welcome {user.userName}
+              </Link>
               <button onClick={handleSignOut} className="btn sign-out-btn">
                 Sign Out
               </button>

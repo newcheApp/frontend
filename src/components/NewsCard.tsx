@@ -16,7 +16,7 @@ interface NewsCardProps {
 
 const NewsCard: React.FC<NewsCardProps> = ({ news }) => {
   const handleClick = () => {
-    window.location.href = news.url;
+    window.open(news.url, "_blank");
   };
 
   const formatDate = (dateString: string) => {
@@ -37,8 +37,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ news }) => {
       />
       <div className="card-body">
         <h5 className="card-title">{news.title}</h5>
-        <p className="card-date">{formatDate(news.date)}</p>{" "}
-        {/* Use formatDate */}
+        <p className="card-date">{formatDate(news.date)}</p>
         <p className="card-text">{news.summary}</p>
       </div>
     </div>

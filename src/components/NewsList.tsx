@@ -1,4 +1,3 @@
-// NewsList.js
 import React, { useState, useEffect } from "react";
 import NewsCard from "./NewsCard";
 
@@ -8,6 +7,7 @@ interface NewsItem {
   summary: string;
   url: string;
   image_url: string;
+  date: string; // Added date property
 }
 
 interface NewsListProps {
@@ -29,11 +29,12 @@ function NewsList({ fetchUrl }: NewsListProps) {
         setNewsItems(data);
       } catch (e) {
         console.error("Fetch error: ", e);
+        setError("Failed to fetch news items. Please try again later.");
       }
     };
 
     fetchNews();
-  }, [fetchUrl]); // Dependency on fetchUrl ensures re-fetch when it changes
+  }, [fetchUrl]);
 
   return (
     <>
