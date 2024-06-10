@@ -19,7 +19,7 @@ interface UserData {
 }
 
 const UpdateUserInfo = () => {
-  const { user } = useAuth();
+  const { user, signIn } = useAuth(); // Include signIn from useAuth
   const navigate = useNavigate();
   const [userData, setUserData] = useState<UserData>({
     email: "",
@@ -112,7 +112,8 @@ const UpdateUserInfo = () => {
         throw new Error("Failed to update user info");
       }
 
-      alert("User info updated successfully!");
+      const updatedUser = await response.json();
+      signIn(updatedUser); // Update user info in context
       navigate("/");
     } catch (error) {
       console.error("Error updating user info:", error);

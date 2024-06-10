@@ -79,7 +79,6 @@ const SignUpForm = () => {
       }
 
       const registeredUser = await response.json();
-      alert("Registration successful!");
 
       // Auto sign-in after registration
       signIn(registeredUser);
