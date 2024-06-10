@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./SideBanner.css"; // Make sure this path is correct
 
 interface Category {
-  id: number;
+  id: string;
   displayName: string;
 }
 
@@ -30,8 +30,8 @@ const SideBanner = () => {
   }, []);
 
   return (
-    <div className="side-banner p-3">
-      <Link to="/myfeed" className="btn btn-primary w-100 mb-3">
+    <div className="side-banner">
+      <Link to="/myfeed" className="btn btn-primary">
         My Feed
       </Link>
       <hr />
@@ -39,7 +39,9 @@ const SideBanner = () => {
       <ul className="list-group">
         {categories.map((category) => (
           <li key={category.id} className="list-group-item">
-            {category.displayName}
+            <Link to={`/category/${category.id}`} className="category-link">
+              {category.displayName}
+            </Link>
           </li>
         ))}
       </ul>

@@ -3,6 +3,9 @@
 .content-container {
   display: flex;
   position: relative; /* Ensure the content container is positioned relative */
+  min-height: calc(
+    100vh - 56px
+  ); /* Ensure content container takes full height minus header */
 }
 
 .side-banner {
@@ -11,7 +14,7 @@
   color: #ffffff; /* Ensures text is white for readability */
   padding: 20px; /* Provides internal spacing */
   position: absolute; /* Position the side-banner absolutely within the content container */
-  top: 0px; /* Position below the AppHeader */
+  top: 0; /* Position at the top of the content container */
   bottom: 0; /* Fill the remaining height of the content container */
   overflow-y: auto; /* Allow scrolling within the sidebar */
   z-index: 1; /* Ensure the side-banner appears below the news-container */

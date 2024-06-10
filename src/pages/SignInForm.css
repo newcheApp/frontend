@@ -1,6 +1,5 @@
-/* SignInForm.css and SignUpForm.css */
 .form-container {
-  max-width: 360px;
+  max-width: 400px; /* Increased the width slightly for better usability */
   margin: 50px auto;
   padding: 30px;
   background-color: #004d40; /* Deep green background */
@@ -12,11 +11,13 @@
 .form-container h2 {
   text-align: center;
   margin-bottom: 20px;
+  color: #ffffff; /* Ensure the heading is also white */
 }
 
 .form-container label {
   display: block;
   margin-bottom: 5px;
+  color: #ffffff; /* Ensure labels are also white */
 }
 
 .form-container input {
@@ -29,11 +30,15 @@
   color: #333; /* Dark gray text color for visibility */
 }
 
+.form-container input::placeholder {
+  color: #999; /* Light gray placeholder text */
+}
+
 .form-container button {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  background-color: #004d40; /* Dark green background for buttons */
+  background-color: #00796b; /* Slightly lighter green for buttons */
   color: white;
   border: none;
   cursor: pointer;
@@ -41,7 +46,7 @@
 }
 
 .form-container button:hover {
-  background-color: #003429; /* Darker shade of green for hover effect */
+  background-color: #004d40; /* Original dark green for hover effect */
 }
 
 .btn-link {
@@ -55,4 +60,10 @@
 
 .btn-link:hover {
   color: #ccc; /* Lighter color on hover */
+}
+
+.error {
+  color: #ff5252; /* Red color for error messages */
+  margin-bottom: 20px;
+  text-align: center; /* Center align error messages */
 }

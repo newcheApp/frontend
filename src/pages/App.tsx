@@ -4,16 +4,19 @@ import AppHeader from "../components/AppHeader";
 import SideBanner from "../components/SideBanner";
 import AuthPage from "./AuthPage";
 import MyFeed from "./MyFeed";
+import MainPage from "./MainPage";
+import CategoryNews from "./CatagoryNews";
 import { AuthProvider } from "../pages/AuthContext";
 import "./App.css";
-import MainPage from "./MainPage";
 
 function App() {
   return (
     <AuthProvider>
       <Router>
         <div className="app-container">
-          <AppHeader />
+          <div className="header-container">
+            <AppHeader />
+          </div>
           <div className="content-container">
             <SideBanner />
             <div className="news-container">
@@ -21,6 +24,10 @@ function App() {
                 <Route path="/" element={<MainPage />} />
                 <Route path="/auth" element={<AuthPage />} />
                 <Route path="/myfeed" element={<MyFeed />} />
+                <Route
+                  path="/category/:categoryId"
+                  element={<CategoryNews />}
+                />
               </Routes>
             </div>
           </div>

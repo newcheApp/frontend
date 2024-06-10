@@ -1,5 +1,6 @@
-// SignUpForm.jsx
 import React, { useState, useEffect } from "react";
+import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 import "./AuthPage.css"; // Using the shared CSS file
 
 interface Tag {
@@ -29,6 +30,9 @@ const SignUpForm = () => {
   });
   const [tags, setTags] = useState<Tag[]>([]);
   const [selectedTags, setSelectedTags] = useState<{ id: string }[]>([]);
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch("http://localhost:4242/api/tags/level?level=0")
@@ -46,34 +50,51 @@ const SignUpForm = () => {
     setSelectedTags((prev) => {
       const isTagSelected = prev.find((tag) => tag.id === tagId);
       if (isTagSelected) {
+        console.log(`Tag removed from sign-up list: ${tagId}`);
         return prev.filter((tag) => tag.id !== tagId);
       } else {
+        console.log(`Tag added to sign-up list: ${tagId}`);
         return [...prev, { id: tagId }];
       }
     });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const finalUserData = { ...userData, tags: selectedTags };
     console.log(
       "Final user data being submitted:",
       JSON.stringify(finalUserData)
-    ); // For debugging
+    );
 
-    fetch("http://localhost:4242/api/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(finalUserData),
-    })
-      .then((response) => response.json())
-      .then((_data) => alert("Registration successful!"))
-      .catch((_error) => alert("Registration failed!"));
+    try {
+      const response = await fetch("http://localhost:4242/api/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(finalUserData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Registration failed");
+      }
+
+      const registeredUser = await response.json();
+      alert("Registration successful!");
+
+      // Auto sign-in after registration
+      signIn(registeredUser);
+      navigate("/");
+    } catch (error) {
+      console.error("Registration failed:", error);
+      setError("Registration failed! Please try again.");
+    }
   };
 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
+        <h2>Sign Up</h2>
+        {error && <div className="error">{error}</div>}
         <input
           type="text"
           name="name"
@@ -131,9 +152,11 @@ const SignUpForm = () => {
             </button>
           ))}
         </div>
-        <button type="submit" className="btn btn-primary">
-          Register
-        </button>
+        <div className="register-box">
+          <button type="submit" className="btn-primary">
+            Register
+          </button>
+        </div>
       </form>
     </div>
   );

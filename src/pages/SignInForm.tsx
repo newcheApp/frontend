@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import { useAuth, User } from "./AuthContext"; // Ensure User is imported here
-import "./AuthPage.css"; // Using the shared CSS file
+import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
+import "./SignInForm.css";
 
-interface SignInCredentials {
-  identifier: string;
-  password: string;
-}
-
-const SignInForm: React.FC = () => {
-  const [credentials, setCredentials] = useState<SignInCredentials>({
+const SignInForm = () => {
+  const [credentials, setCredentials] = useState({
     identifier: "",
     password: "",
   });
   const { signIn } = useAuth();
+  const navigate = useNavigate();
   const [error, setError] = useState<string | null>(null);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,14 +19,14 @@ const SignInForm: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log("Attempting to sign in with:", credentials);
+
     try {
       const response = await fetch(
-        "http://localhost:4242/api/auth/validate-credentials",
+        "http://localhost:4242/auth/validate-credentials",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(credentials),
         }
       );
@@ -38,11 +35,27 @@ const SignInForm: React.FC = () => {
         throw new Error("Invalid credentials");
       }
 
-      const user: User = await response.json();
-      signIn(user); // Update the auth context with the user details
+      const data = await response.json();
+      console.log("Sign in response:", data);
+
+      if (data === true) {
+        const userResponse = await fetch(
+          `http://localhost:4242/api/users/getByEmail/${credentials.identifier}`
+        );
+        if (!userResponse.ok) {
+          throw new Error("Failed to fetch user data");
+        }
+
+        const userData = await userResponse.json();
+        console.log("Retrieved user data:", userData);
+        signIn(userData);
+        navigate("/");
+      } else {
+        alert("Sign in failed! Incorrect username or password.");
+      }
     } catch (error) {
-      console.error("Failed to sign in:", error);
-      setError("Failed to sign in: Invalid credentials");
+      console.error("Sign in failed:", error);
+      setError("Sign in failed! Please try again.");
     }
   };
 
@@ -52,7 +65,7 @@ const SignInForm: React.FC = () => {
         <h2>Sign In</h2>
         {error && <div className="error">{error}</div>}
         <div>
-          <label htmlFor="identifier">Email or Username:</label>
+          <label htmlFor="identifier">Email:</label>
           <input
             type="text"
             id="identifier"
