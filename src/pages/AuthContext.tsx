@@ -1,9 +1,8 @@
-// AuthContext.tsx
-
 import React, {
   createContext,
   useContext,
   useState,
+  useEffect,
   ReactNode,
   FunctionComponent,
 } from "react";
@@ -41,7 +40,18 @@ interface AuthProviderProps {
 export const AuthProvider: FunctionComponent<AuthProviderProps> = ({
   children,
 }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(() => {
+    const storedUser = localStorage.getItem("user");
+    return storedUser ? JSON.parse(storedUser) : null;
+  });
+
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      localStorage.removeItem("user");
+    }
+  }, [user]);
 
   const signIn = (userData: User) => {
     setUser(userData);

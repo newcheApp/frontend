@@ -1,5 +1,7 @@
+/* AuthPage.css */
+
 .form-container {
-  max-width: 360px;
+  max-width: 400px;
   margin: 50px auto;
   padding: 30px;
   background-color: #004d40; /* Deep green background */
@@ -16,6 +18,7 @@
 .form-container label {
   display: block;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .form-container input {
@@ -28,7 +31,7 @@
   color: #333; /* Dark gray text color for visibility */
 }
 
-.form-container .btn-primary {
+.form-container button {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
@@ -39,31 +42,8 @@
   transition: background-color 0.3s ease;
 }
 
-.form-container .btn-primary:hover {
+.form-container button:hover {
   background-color: #003429; /* Darker shade of green for hover effect */
-}
-
-.tag-selection {
-  margin-bottom: 20px;
-}
-
-.tag-selection .btn {
-  margin: 5px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.tag-selection .btn-outline-success {
-  background-color: transparent;
-  border: 1px solid #28a745; /* Bootstrap success color */
-  color: #28a745; /* Bootstrap success color */
-}
-
-.tag-selection .btn-outline-success:hover,
-.tag-selection .btn-success {
-  background-color: #28a745; /* Bootstrap success color */
-  color: white;
 }
 
 .btn-link {
@@ -85,10 +65,38 @@
   text-align: center; /* Center align error messages */
 }
 
+.tag-selection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tag-selection button {
+  flex: 1 1 45%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tag-selection button:hover {
+  background-color: #ddd;
+}
+
+.tag-selection button.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.tag-selection button.btn-outline-success {
+  background-color: #f8f9fa;
+  color: #28a745;
+}
+
 .register-box {
-  padding: 20px;
-  margin-top: 20px;
-  background-color: #00251a; /* Darker shade of the form background */
-  border-radius: 8px;
   text-align: center;
 }

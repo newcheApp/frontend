@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
-import "./SignInForm.css";
+import "./AuthPage.css";
 
 const SignInForm = () => {
   const [credentials, setCredentials] = useState({
@@ -61,9 +61,9 @@ const SignInForm = () => {
 
   return (
     <div className="form-container">
+      <h2>Sign In</h2>
+      {error && <div className="error">{error}</div>}
       <form onSubmit={handleSubmit}>
-        <h2>Sign In</h2>
-        {error && <div className="error">{error}</div>}
         <div>
           <label htmlFor="identifier">Email:</label>
           <input
